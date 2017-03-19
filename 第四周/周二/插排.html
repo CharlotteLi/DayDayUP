@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    var ary=[1,5,3,2,4,7,10,8,9,6,19];
+
+        function insertSort(arr){
+//            1创建一个左边的数组随意选择一个数字
+            var left=arr.splice(3,1);
+//            2遍历ary的每一个 分别跟left数组中从后往前比较
+            for(var i=0; i<arr.length; i++){
+                var rightItem=arr[i];
+                for(var j=left.length-1; j>=0; ){
+                    if(rightItem<left[j]){
+                        j--;
+                        if(j==-1){/*如果等于-1说明到头了   插到左数组的第一个*/
+                            left.unshift(rightItem);
+                        }
+                    }
+                    else{  /*说明右边的比左边大，应该插到左手这张牌下一张的前面*/
+                        left.splice(j+1,0,rightItem);
+                        break;
+                    }
+                }
+            }
+            return left;
+        }
+    var res=insertSort(ary);
+        console.log(res);
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

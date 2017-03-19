@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div></div>
+<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    function countDown(){
+        /*未来的时间与现在的时间相减得到与未来的时间相差的毫秒*/
+        var s=Math.floor((new Date('2017/3/16 22:00:00')-new Date())/1000);
+        var d=Math.floor(s/86400);/*用剩余的毫秒数除以24小时的毫秒数可以得到有几天*/
+        s%=86400;/*可以得到除以24小时之后剩下的毫秒数*/
+        var h=Math.floor(s/3600);/*得到剩下毫秒数是多少个小时*/
+        s%=3600;/*可以得到除去小时数剩下的秒数*/ 
+        var m=Math.floor(s/60);/*得到除去小时数之后的秒数有多少分钟*/
+        s%=60;
+        var str=toDou(d)+'天'+toDou(h)+'时'+toDou(m)+':'+toDou(s);
+        oDiv.innerHTML=str;
+    }
+    countDown();
+    setInterval(countDown,1000);
+    function toDou(n){
+        return n>=0 && n<10? '0'+n : ''+n;
+    }
+</script>
+</body>
+</html>

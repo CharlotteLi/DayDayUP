@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div></div>
+<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    function toDou(n){
+        return n>=0 && n<10?'0'+n:''+0;
+    }
+    function countDown(){
+//        var oDate=new Date();  /*获取到格林尼制时间*/
+        var s=Math.floor((new Date('2017/3/19/18/00/00')-new Date())/1000);
+        var d=Math.floor(s/86400);
+        s%=86400;
+        var h=Math.floor(s/3600);
+        s%=3600;
+        var m=Math.floor(s/60);
+        s%=60;
+        var str=toDou(d)+ '天' + toDou(h)+ ':' +toDou(m)+ ':' +toDou(s);
+        oDiv.innerHTML=str;
+    }
+    countDown();
+    setInterval(countDown,1000);
+
+</script>
+</body>
+</html>

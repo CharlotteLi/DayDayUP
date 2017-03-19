@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    var strCodo='qwertyuiopasdfghjklmnbvcxz1234567890';
+    var ary=[];
+//        for(var i=0; i<4; i++){
+//            var red =Math.round(Math.random()*35);
+//            if(ary.indexOf(strCodo[red])===-1){
+//                ary.push(strCodo[red])
+//            }
+//            else{
+//                i++;
+//            }
+//        }
+//    document.write(ary);
+
+   while(ary.length<4){
+       var red =Math.round(Math.random()*35);
+            if(ary.indexOf(strCodo[red])===-1){
+                ary.push(strCodo[red])
+            }
+   }
+    document.write(ary);
+</script>
+
+
+
+
+</body>
+</html>

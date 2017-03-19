@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    var cocd='QWERTYUIOPLKJHGFDSAZXCVBNMqwertyuiopkljhgfdsazxcvbnm0123456789';
+    var ary=[];
+    for(var i=0; i<4; i++){
+        var ren=Math.round(Math.random()*61);
+        if(ary.indexOf(cocd[ren])==-1){
+            ary.push(cocd[ren]);
+        }
+        else{i--}
+    }
+
+//        while(ary.length<4){
+//
+//            var ren = Math.round(Math.random()*61);
+//
+//                if(ary.indexOf(cocd[ren])===-1){
+//                    ary.push(cocd[ren]);
+//                }
+//
+//
+//            }
+
+document.write(ary);
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

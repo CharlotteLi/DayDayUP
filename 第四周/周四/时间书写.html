@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var oDiv=document.getElementById('box');
+    /*定义一个函数*/
+    function clock(){
+        /*获取时间*/
+        var oDate=new Date();
+        /*获取到每个方法*/
+        var h=oDate.getHours();  /*小时*/
+        var m=oDate.getMinutes();/*分钟*/
+        var s=oDate.getSeconds();/*秒*/
+            /*字符串拼接*/
+        var str=toDou(h)+ '：' +toDou(m)+ ':' +toDou(s);
+        oDiv.innerHTML=str;/*把他放到容器中*/
+    }
+    clock();/*直接调用解决出现一秒的延迟*/
+    window.setInterval(clock,1000);/*重复调用 两个参数  函数名  与刷新时间 */
+
+    function toDou(n){   /*判断如果出现n小于10的时候，需要加一个0  增加用户体验*/
+    return n>=0 && n<10? '0' +n : ''+n;
+    /*返回   n大于等于0且 n<10  ？判断是否达到条件  如果达到 '0’+ n :否则 ''+n */
+
+//        if(n>=0 && n<10){
+//            return '0'+n;  /*如果小于10  返回 0+什么什么*/
+//        }
+//        else{
+//            return ''+n;   /*如果大于10 返回空字符串+n*/
+//        }
+    }
+
+
+</script>
+</body>
+</html>

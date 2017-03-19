@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var ary=[85,17,45,741,256,1475,41256];
+    function bubble(arr){
+        for(var i=0; i<arr.length; i++){
+            for(var j=i-1; j<arr.length; j++){
+                if(arr[i]>arr[j]){
+                    var tmp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=tmp;
+                }
+            }
+        }
+        return arr;
+    }
+    var res=bubble(ary);
+    console.log(res);
+
+
+</script>
+
+
+
+
+</body>
+</html>

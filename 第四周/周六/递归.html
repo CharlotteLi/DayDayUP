@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var n=0;
+    function fn(){
+        n++;
+        alert(n);
+        if(n>=5){
+            return
+        }
+        var timer=setTimeout(arguments.callee,1000);
+    }
+    fn()
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+            height: 50px;
+        }
+
+        span{
+            display: inline-block;
+            width: 130px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .bg0{
+            background-color: lawngreen;
+        }
+        .bg1{
+            background-color: lightblue;
+        }
+        .bg2{
+            background-color:orange;
+        }
+
+        .active{
+            background-color: orangered;
+            color: #ffffff;
+        }
+
+
+    </style>
+
+
+
+
+
+
+</head>
+<body>
+<ul id="ul"></ul>
+
+<script>
+    var oUl=document.getElementById('ul');
+    var aLi=oUl.getElementsByTagName('li');
+    var str='';
+        for(var i=1; i<=9;i++){
+            str+='<li>';
+            for( var j=1; j<=i; j++ ){
+                str+='<span>' +j+ '*' +i+ '=' +i*+j+ '</span>';
+            }
+            str+='</li>';
+        }
+    oUl.innerHTML=str;
+
+    for(var i=0; i<aLi.length; i++){
+
+            aLi[i].className='bg' +i%3;
+            aLi[i].bg='bg' +i%3;
+
+            aLi[i].onmouseover=function(){
+                this.className='active';
+
+            };
+        aLi[i].onmouseout=function(){
+                this.className=this.bg;
+            }
+    }
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

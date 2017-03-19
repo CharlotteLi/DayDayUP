@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="div1">
+    <h1>我的天啊</h1>
+    <ul>
+        <li>今天玩</li>
+        <li>今天吃饭</li>
+        <li>今天睡觉</li>
+        <li>今天学习</li>
+        <li>今天做饭</li>
+    </ul>
+</div>
+<script>
+
+//    console.log(oDiv.childNodes);/*获取所有子节点  节点是页面中的标签 文字 注释....都是节点*/
+//      console.log(oDiv.children);/*获取元素的子节点  只有IE8有注释内容的时候不兼容，其他时候都能获得当前容器下的所有子元素*/
+//    console.log(oDiv.parentNode);/*获取父亲节点*/
+//        console.log(oDiv.previousSibling);获取上哥哥节点
+//        console.log(oDiv.nextSibling);获取下弟1弟节点
+//    console.log(oDiv.firstChild);获取所有子节点的第一个
+//    console.log(oDiv.lastChild);获取所有子节点的最后一个
+
+//        节点需要掌握的类型         nodeType节点类型    nodeName节点名称   node Value节点值
+//          元素节点（元素标签）           1              大写的标签名          null
+//          文本节点（文字）               3                #txt                文字内容
+//          注释节点（注释                 8                #comment            注释内容
+//          document                        9               #document            null
+
+//        console.log(oDiv.nodeType);/*1*/
+//        console.log(oDiv.nodeName);/*大写的DIV*/
+//        console.log(oDiv.nodeValue);/*null*/
+
+//    在标准浏览器下，我们把空格  回车 都当做文本；
+
+
+//  实现Children方法，实现获取指定元素下的子节点；
+ /*
+ * getMyChildren:获取指定元素下的所有元素子节点
+ * @parameter：
+ *              ele我们要获取谁的就把谁传进来
+ *              tagName   定义了形参没传实等于undefined；
+ * return  最终获取的元素的子节点
+ * by   家里 on2017/03/17
+ * */
+var oDiv=document.getElementById('div1');
+var oUl=oDiv.getElementsByTagName('ul')[0];
+    function getMyChildren(ele,tagName){
+        var ary=[];/*定义一个空盒子*/
+        var nodes=ele.childNodes;/*定义一个变量等于形参的所有子节点*/
+        for(var i=0; i<nodes.length; i++){/*循环遍历到每一个节点*/
+            var cur=nodes[i];/*定义一个变量存放遍历后的对象*/
+            if(cur.nodeType===1){/*判断他的值是否为1，是的话给空对象的末尾添加*/
+                /*定义了形参没传实等于undefined*/
+                if(tagName){
+                    /*如果你给我传了，那么我进一步删选   可能大小写不一样所以需要大小写都穿换成小写在进行比较*/
+                    if((cur.nodeName).toLowerCase()===tagName.toLowerCase()){
+                        ary.push(cur);
+                    }
+                }
+            }
+        }
+    return ary;
+    }
+//var res=getMyChildren(oDiv,"ul");
+console.log(getMyChildren(oDiv,"ul"));
+
+
+</script>
+</body>
+</html>

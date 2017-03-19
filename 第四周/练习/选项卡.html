@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        div{
+
+            width: 300px;
+            height: 450px;
+        }
+        div ul {
+            height: 50px;
+        }
+        div ul li {
+            width: 100px;
+            height: 50px;
+            background-color: #eeeeee;
+            line-height: 40px;
+            text-align: center;
+            float: left;
+        }
+        div div {
+            width: 300px;
+            height: 400px;
+            background-color: red;
+            line-height: 400px;
+            text-align: center;
+            display: none;
+        }
+        .active{
+            background-color: lawngreen;
+        }
+
+        .show{
+            background-color: lawngreen;
+            display: block;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li class="active">一</li>
+        <li>二</li>
+        <li>三</li>
+    </ul>
+    <div class="show">一</div>
+    <div>二</div>
+    <div>三</div>
+</div>
+
+<script>
+    var oDiv=document.getElementById('box');
+    var aLi=oDiv.getElementsByTagName('li');
+    var aDiv=oDiv.getElementsByTagName('div');
+
+//        for(var i=0; i<aLi.length; i++){
+//            aLi[i].index=i;
+//            aLi[i].onclick=function(){
+//                for(var i=0; i<aLi.length; i++){
+//                    aLi[i].className='';
+//                    aDiv[i].className='';
+//                }
+//                    this.className='active';
+//                    aDiv[this.index].className='show';
+//            }
+//        }
+
+    for(var i=0; i<aLi.length; i++){
+
+        +function(index){
+           aLi[i].onclick=function(){
+               for(var i=0; i<aLi.length; i++){
+                   aLi[i].className='';
+                   aDiv[i].className='';
+               }
+               aLi[index].className='active';
+               aDiv[index].className='show';
+           }
+
+        }(i);
+
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var ary=[1,5,3,2,4,7,10,8,9,6,19];
+
+    function quickSort(arr){
+            /*停止拆分的条件*/
+            if(arr.length<=1){
+                return arr;
+            }
+            var n=parseInt(arr.length/2);   /*1找到中间的位置*/
+            var num=arr.splice(n,1)[0];        /*2找到中间值*/
+                var left=[];                /*3创建两个空数组*/
+                var right=[];
+            /*遍历数组的每一项 分别跟num进行比较 大的放进右边   小的放进左边*/
+            for(var i=0; i<arr.length; i++){
+                    if(arr[i]>num){
+                        right.push(arr[i]);
+                    }
+                    else{
+                        left.push(arr[i]);
+                    }
+                }
+        /*两边的数字还能继续拆分，把函数的实参更改为左右两边的数组重新拆分*/
+        return quickSort(left).concat(num,quickSort(right));
+
+        }
+    var res=quickSort(ary);
+
+
+
+console.log(res);
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
